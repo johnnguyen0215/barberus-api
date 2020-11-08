@@ -1,10 +1,15 @@
-const db = require("../models");
-const User = db.users;
-const Op = db.Sequelize.Op;
+import { User } from '../models/user.model';
+import { Request, Response } from 'express';
 
 export class UserController {
+  public index(req: Request, res: Response) {
+    res.json({
+      message: 'Hello boi'
+    })
+  }
+
   // Create and Save a new Tutorial
-  create = async (req, res) => {
+  public create = async (req: Request, res: Response) => {
     if (!req.body.name) {
       res.status(400).send({
         message: 'Name can not be empty.'
@@ -31,32 +36,32 @@ export class UserController {
   };
 
   // Retrieve all Tutorials from the database.
-  findAll = (req, res) => {
+  public findAll = (req: Request, res: Response) => {
 
   };
 
   // Find a single Tutorial with an id
-  findOne = (req, res) => {
+  public findOne = (req: Request, res: Response) => {
 
   };
 
   // Update a Tutorial by the id in the request
-  update = (req, res) => {
+  public update = (req: Request, res: Response) => {
 
   };
 
   // Delete a Tutorial with the specified id in the request
-  delete = (req, res) => {
+  public delete = (req: Request, res: Response) => {
 
   };
 
   // Delete all Tutorials from the database.
-  deleteAll = (req, res) => {
+  public deleteAll = (req: Request, res: Response) => {
 
   };
 
   // Find all published Tutorials
-  findAllPublished = (req, res) => {
+  public findAllPublished = (req: Request, res: Response) => {
 
   };
 }

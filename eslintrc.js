@@ -8,6 +8,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    "@typescript-eslint/explicit-function-return-type": 0
+    "@typescript-eslint/explicit-function-return-type": 0,
   },
 };

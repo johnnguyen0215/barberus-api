@@ -36,10 +36,11 @@ User.init(
     password: {
       type: DataTypes.STRING(128),
       allowNull: false,
-    },
+    }
   },
   {
     tableName: 'users',
+    timestamps: false,
     sequelize,
   }
 )

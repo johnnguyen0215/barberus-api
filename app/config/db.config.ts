@@ -3,6 +3,7 @@ import { Dialect } from "sequelize/types";
 interface DbConfig {
   HOST: string,
   USER: string,
+  PORT: number,
   PASSWORD: string,
   DB: string,
   dialect: Dialect,
@@ -16,9 +17,10 @@ interface DbConfig {
 
 const dbConfig: DbConfig = {
   HOST: "localhost",
-  USER: "postgres",
-  PASSWORD: "123",
-  DB: "testdb",
+  PORT: 5432,
+  USER: "barberus-dev",
+  PASSWORD: "abc123",
+  DB: "barberusdb",
   dialect: "postgres",
   pool: {
     max: 5,

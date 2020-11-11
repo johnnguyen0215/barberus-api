@@ -19,7 +19,7 @@ export class UserController {
     }
 
     const user = {
-      name: req.body.user,
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     }

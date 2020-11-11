@@ -9,5 +9,7 @@ export class Routes {
     app.route('/').get(this.userController.findAll);
 
     app.route('/users').get(this.userController.index);
+
+    app.route('/users').post(this.userController.create);
   }
 }

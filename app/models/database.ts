@@ -6,5 +6,12 @@ export const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASS
   host: dbConfig.HOST,
   port: dbConfig.PORT,
   dialect: dbConfig.dialect,
-  pool: dbConfig.pool
+  dialectOptions: {
+    ssl: {
+      required: true,
+      rejectUnauthorized: false
+    }
+  },
+  pool: dbConfig.pool,
+  ssl: dbConfig.ssl,
 });

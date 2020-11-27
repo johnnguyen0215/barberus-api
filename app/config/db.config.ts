@@ -7,6 +7,7 @@ interface DbConfig {
   PASSWORD: string,
   DB: string,
   dialect: Dialect,
+  ssl: boolean,
   pool: {
     max: number,
     min: number,
@@ -16,12 +17,13 @@ interface DbConfig {
 }
 
 const dbConfig: DbConfig = {
-  HOST: "localhost",
+  HOST: "ec2-52-2-82-109.compute-1.amazonaws.com",
   PORT: 5432,
-  USER: "barberus-dev",
-  PASSWORD: "abc123",
-  DB: "barberusdb",
+  USER: "gckeetmejwxqlo",
+  PASSWORD: "80ec0ca454ba454945514fdbafffae08863f7fbbd67d496f1741d503d475d243",
+  DB: "d8kkspcemvilkf",
   dialect: "postgres",
+  ssl: true,
   pool: {
     max: 5,
     min: 0,

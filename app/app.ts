@@ -14,11 +14,7 @@ class App {
   }
 
   private config(): void {
-    const corsOptions = {
-      origin: "http://localhost:8081"
-    };
-
-    this.app.use(cors(corsOptions));
+    this.app.use(cors());
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
   }

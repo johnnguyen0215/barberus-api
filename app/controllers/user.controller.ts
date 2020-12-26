@@ -1,7 +1,17 @@
 import { User } from '../models/user.model';
 import { Request, Response } from 'express';
+import bcrypt from 'bcrypt';
+import joi from 'joi';
+
+
 
 export class UserController {
+  private readonly userValidator = joi.object(({
+    name: joi.string().required(),
+    email: joi.string().email({ tlds: {allow: false} }).required(),
+    password: joi.string().min(10).required()
+  }));
+
   public index(req: Request, res: Response) {
     res.json({
       message: 'Hello boi'
@@ -9,19 +19,25 @@ export class UserController {
   }
 
   // Create and Save a new Tutorial
-  public create = async (req: Request, res: Response) => {
-    if (!req.body.name) {
-      res.status(400).send({
-        message: 'Name can not be empty.'
-      })
+  public create = async (req: Request, res: Response): Promise<void> => {
+    let encryptedPw = null;
+
+    const result = this.userValidator.validate(req.body);
+
+    if (result.error) {
+      const errorDetails = result.error.details[0];
+
+      res.status(400).send(errorDetails);
 
       return;
     }
 
+    encryptedPw = await bcrypt.hash(req.body.password, 10);
+
     const user = {
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      password: encryptedPw
     }
 
     try {

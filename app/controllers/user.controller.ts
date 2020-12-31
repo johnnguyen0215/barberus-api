@@ -9,7 +9,7 @@ export class UserController {
   private readonly userValidator = joi.object(({
     name: joi.string().required(),
     email: joi.string().email({ tlds: {allow: false} }).required(),
-    password: joi.string().min(10).required()
+    password: joi.string().min(8).required()
   }));
 
   public index(req: Request, res: Response) {
